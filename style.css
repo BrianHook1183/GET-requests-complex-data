@@ -1,1 +1,27 @@
+html {
+  padding: 10px 20px;
+}
 
+body {
+  width: 100%;
+  margin: auto;
+  border: .5em solid grey;
+}
+@media (min-width: 600px) {
+  body {
+    width: 60%;
+  }
+}
+
+header, footer {
+  background-color: lightgrey;
+}
+
+main {
+  min-height: 700px;
+  border: .25em solid black;
+}
+
+.centered {
+  text-align: center;
+}
