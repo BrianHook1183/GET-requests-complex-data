@@ -25,3 +25,17 @@ main {
 .centered {
   text-align: center;
 }
+
+/* Form */
+input, select {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+}
+input {
+  max-width: 50%;
+}
+form {
+background-color: lightblue;
+display: inline-block;
+}
