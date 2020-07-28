@@ -20,6 +20,7 @@ header, footer {
 main {
   min-height: 700px;
   border: .25em solid black;
+  padding: 0px 8px;
 }
 
 .centered {
