@@ -17,7 +17,6 @@ function displayResults(responseJson) {
     $('.js-results').append(`
       <h2>${responseJson.data[i].fullName}</h2>
       <p>${responseJson.data[i].description}</p>
-      <img class="photo" src="${responseJson.data[i].images[0].url}" alt="${responseJson.data[i].images[0].altText}">
       <p class="centered more">Learn more at <br>
       <a href="${responseJson.data[i].url}" target="bank">${responseJson.data[i].url}</a></p>`
     )};
@@ -49,9 +48,11 @@ function getNationalParks(userState, maxResults) {
 function watchForm() {
   $('#js-form').submit(event => {
     event.preventDefault();
+    $('.js-results').empty();
     const userState = $('#js-state').val();
     const maxResults = $('#js-max-results').val();
     console.log(userState + ' ' + maxResults);
+    $('#js-error-message').text(`Loading...`);
     getNationalParks(userState, maxResults);
   });
 }
