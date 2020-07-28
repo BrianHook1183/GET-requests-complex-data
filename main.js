@@ -17,7 +17,7 @@ function displayResults(responseJson) {
     $('.js-results').append(`
       <h2>${responseJson.data[i].fullName}</h2>
       <p>${responseJson.data[i].description}</p>
-      <p>Learn more at <a href="${responseJson.data[i].url}">${responseJson.data[i].url}</a></p><hr>`
+      <p class="centered more">Learn more at <br><a href="${responseJson.data[i].url}" target="bank">${responseJson.data[i].url}</a></p><hr>`
     )};
   $('.js-results').removeClass('hide');
 };

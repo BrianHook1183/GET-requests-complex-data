@@ -5,11 +5,11 @@ html {
 body {
   width: 100%;
   margin: auto;
-  border: .5em solid grey;
+  /* border: .5em solid grey; */
 }
 @media (min-width: 600px) {
   body {
-    width: 60%;
+    width: 50%;
   }
 }
 
@@ -19,7 +19,7 @@ header, footer {
 
 main {
   min-height: 700px;
-  border: .25em solid black;
+  /* border: .25em solid black; */
   padding: 0px 8px;
 }
 
@@ -43,4 +43,8 @@ display: inline-block;
 
 .hide {
   display: none;
+}
+
+.more {
+  margin-bottom: 25px;
 }
