@@ -12,7 +12,7 @@ function formatQueryParams(params) {
 
 function displayResults(responseJson) {
   console.log(responseJson);
-  $('.js-results').empty();
+  $('.js-results, #js-error-message').empty();
   for (let i = 0; i < responseJson.data.length; i++){
     $('.js-results').append(`
       <h2>${responseJson.data[i].fullName}</h2>
@@ -20,6 +20,7 @@ function displayResults(responseJson) {
       <p class="centered more">Learn more at <br>
       <a href="${responseJson.data[i].url}" target="bank">${responseJson.data[i].url}</a></p>`
     )};
+    $('.js-results').append(`<p><a href="#js-form">Back to top</a></p>`);
   $('.js-results').removeClass('hide');
 };
   
