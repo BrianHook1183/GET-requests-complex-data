@@ -35,6 +35,7 @@ input, select {
 }
 input {
   max-width: 50%;
+  margin-bottom: 8px;
 }
 form {
 background-color: lightblue;
