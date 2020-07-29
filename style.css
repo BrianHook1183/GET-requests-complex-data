@@ -10,7 +10,7 @@ body {
 @media (min-width: 600px) {
   body {
     width: 50%;
-    min-width: 550px;
+    /* min-width: 550px; */
   }
 }
 
