@@ -53,15 +53,39 @@ function getNationalParks(userState, maxResults) {
 }
 
 function watchForm() {
+  handleMultipleStates();
   $('#js-form').submit(event => {
     event.preventDefault();
     $('.js-results').empty();
-    const userState = $('#js-state').val();
     const maxResults = $('#js-max-results').val();
-    console.log(userState + ' ' + maxResults);
+    let userState = [];
+    // add states into final userState Variable
+    userState.push($('#js-state1').val());
+    if ($('#js-state2').val() != 'none') {
+      userState.push($('#js-state2').val());
+    }
+    if ($('#js-state3').val() != 'none') {
+      userState.push($('#js-state3').val());
+    }
+    console.log('userState is ' + userState + ' and maxResults is ' + maxResults);
+    // TO DO: change loading text to a gif
     $('#js-error-message').text(`Loading...`);
     getNationalParks(userState, maxResults);
   });
+}
+
+// only displays necessary # of state dropdowns based on user interaction
+function handleMultipleStates() {
+  $('#js-state1, #js-state2, #js-state3').on("click", event => {
+    // display second state dropdown only when initial state is selected
+    if ($('#js-state1').children(":selected").val() != 'none') {
+      $('#js-state2').removeClass('hide');
+    }
+    // display third state dropdown only when 2nd state is selected
+    if ($('#js-state2').children(":selected").val() != 'none') {
+      $('#js-state3').removeClass('hide');
+    }
+  })
 }
 
 $(watchForm);
