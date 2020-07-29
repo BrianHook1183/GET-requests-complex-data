@@ -52,8 +52,16 @@ function getNationalParks(userState, maxResults) {
   });
 }
 
+// returns additional dropdowns to hidden 
+function clearForm() {
+  $(':reset').on("click", event => {
+    $('#js-state2, #js-state3').addClass('hide');
+  })
+}
+  
 function watchForm() {
   handleMultipleStates();
+  clearForm();
   $('#js-form').submit(event => {
     event.preventDefault();
     $('.js-results').empty();

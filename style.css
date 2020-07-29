@@ -37,14 +37,24 @@ input, select {
   margin: auto;
   max-width: 90%;
 }
+input[type=reset] {
+  margin-top: 25px;
+  margin-bottom: 8px;
+  color: red;
+}
+input[type=submit] {
+  color: green;
+  font-weight: bold;
+}
 input {
   max-width: 50%;
-  margin-bottom: 8px;
 }
 form {
 background-color: lightblue;
 display: inline-block;
+padding: 10px 0px;
 }
+
 /* Form */
 
 .hide {
