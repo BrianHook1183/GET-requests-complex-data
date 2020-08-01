@@ -52,48 +52,46 @@ function getNationalParks(userState, maxResults) {
   });
 }
 
-// returns additional dropdowns to hidden 
+//  TO DO: this will need to be updated once the other functionality is completed
 function clearForm() {
   $(':reset').on("click", event => {
-    $('#js-state2, #js-state3').addClass('hide');
+    // $('#js-state').addClass('hide');
+    console.log('clearForm was clicked');
+    $('#js-state li').removeClass();
   })
+}
+
+function handleStateClicks() {
+  $('#js-state li').click(function() {
+    const stateAbbr = $(this)[0].attributes[0].nodeValue;
+      console.log('the stateAbbr clicked was: ' + stateAbbr);
+    $(this).toggleClass('active-state');
+    // return false;
+  });
 }
   
 function watchForm() {
-  handleMultipleStates();
   clearForm();
+  handleStateClicks();
   $('#js-form').submit(event => {
     event.preventDefault();
     $('.js-results').empty();
-    const maxResults = $('#js-max-results').val();
+    
     let userState = [];
-    // add states into final userState Variable
-    userState.push($('#js-state1').val());
-    if ($('#js-state2').val() != 'none') {
-      userState.push($('#js-state2').val());
-    }
-    if ($('#js-state3').val() != 'none') {
-      userState.push($('#js-state3').val());
-    }
-    console.log('userState is ' + userState + ' and maxResults is ' + maxResults);
+    const maxResults = $('#js-max-results').val();
+    
+    // adds selected states into final userState array only after submit clicked
+    $('.active-state').each(function() {
+      userState.push($(this)[0].attributes[0].nodeValue);
+    });
+    
     // TO DO: change loading text to a gif
     $('#js-error-message').text(`Loading...`);
+    
+    console.log('userState is ' + userState + ' and maxResults is ' + maxResults);
     getNationalParks(userState, maxResults);
   });
 }
 
-// only displays necessary # of state dropdowns based on user interaction
-function handleMultipleStates() {
-  $('#js-state1, #js-state2, #js-state3').on("click", event => {
-    // display second state dropdown only when initial state is selected
-    if ($('#js-state1').children(":selected").val() != 'none') {
-      $('#js-state2').removeClass('hide');
-    }
-    // display third state dropdown only when 2nd state is selected
-    if ($('#js-state2').children(":selected").val() != 'none') {
-      $('#js-state3').removeClass('hide');
-    }
-  })
-}
 
 $(watchForm);

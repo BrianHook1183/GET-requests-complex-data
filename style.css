@@ -50,7 +50,7 @@ input {
   max-width: 50%;
 }
 form {
-background-color: lightblue;
+/* background-color: black; */
 display: inline-block;
 padding: 10px 0px;
 }
@@ -75,4 +75,34 @@ padding: 10px 0px;
 
 .photo {
   height: 250px;
+}
+
+
+/* TO DO: make list a flex container that is ~4x13 */
+/* State List */
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+li {
+  background-color: white;
+  margin: 4px;
+  padding:10px;
+  position: relative;
+  border: 1px dotted grey;
+}
+li:hover {
+  background-color: lightskyblue;
+  color: white;
+}
+li:active {
+  background-color: blue; 
+  top: 2px;
+}
+.active-state {
+  background-color: blue;
+  color: white;
+  border: 2px solid black;
 }
