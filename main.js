@@ -11,7 +11,7 @@ function formatQueryParams(params) {
 }
 
 function displayResults(responseJson) {
-  console.log(responseJson);
+    // console.log(responseJson);
   $('.js-results, #js-error-message').empty();
   for (let i = 0; i < responseJson.data.length; i++){
     if (!responseJson.data[i]){
@@ -24,8 +24,8 @@ function displayResults(responseJson) {
          `<img class="photo" src="${responseJson.data[i].images[0].url}" alt="${responseJson?.data[i].images[0].altText}">` :
           ``}
       <p class="centered more">Learn more at <br>
-      <a href="${responseJson.data[i].url}" target="bank">${responseJson.data[i].url}</a></p>`
-    )};
+      <a href="${responseJson.data[i].url}" target="bank">${responseJson.data[i].url}</a></p>
+    `)};
     $('.js-results').append(`<p><a href="#js-form">Back to top</a></p>`);
   $('.js-results').removeClass('hide');
 };
@@ -38,7 +38,7 @@ function getNationalParks(userState, maxResults) {
   };
   const queryString = formatQueryParams(params)
   const url = baseURL + '?' + queryString;
-  console.log(url);
+    // console.log(url);
   fetch(url)
   .then(response => {
     if (response.ok) {
@@ -56,7 +56,7 @@ function getNationalParks(userState, maxResults) {
 function clearForm() {
   $(':reset').on("click", event => {
     // $('#js-state').addClass('hide');
-    console.log('clearForm was clicked');
+      console.log('clearForm was clicked');
     $('#js-state li').removeClass();
   })
 }
@@ -66,7 +66,7 @@ function handleStateClicks() {
     const stateAbbr = $(this)[0].attributes[0].nodeValue;
       console.log('the stateAbbr clicked was: ' + stateAbbr);
     $(this).toggleClass('active-state');
-    // return false;
+    // return false; // This code came from elsewhere, not sure if necessary
   });
 }
   
@@ -81,8 +81,8 @@ function watchForm() {
     const maxResults = $('#js-max-results').val();
     
     // adds selected states into final userState array only after submit clicked
-    $('.active-state').each(function() {
-      userState.push($(this)[0].attributes[0].nodeValue);
+    $('.active-state').each(function(_index, state) {
+      userState.push($(state).attr('value'));
     });
     
     // TO DO: change loading text to a gif
