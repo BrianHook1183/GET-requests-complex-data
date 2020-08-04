@@ -54,18 +54,18 @@ function getNationalParks(userState, maxResults) {
 
 //  TO DO: this will need to be updated once the other functionality is completed
 function clearForm() {
-  $(':reset').on("click", event => {
-    // $('#js-state').addClass('hide');
-      console.log('clearForm was clicked');
+  $(':reset').click(_event => {
+    console.log('clearForm was clicked');
+    // $('#js-state').addClass('hide'); // might be useful when state list collapse is implemented
     $('#js-state li').removeClass();
   })
 }
 
 function handleStateClicks() {
-  $('#js-state li').click(function() {
-    const stateAbbr = $(this)[0].attributes[0].nodeValue;
+  $('#js-state li').click(event => {
+    const stateAbbr = $(event.currentTarget).attr('value');
       console.log('the stateAbbr clicked was: ' + stateAbbr);
-    $(this).toggleClass('active-state');
+    $(event.currentTarget).toggleClass('active-state');
     // return false; // This code came from elsewhere, not sure if necessary
   });
 }
